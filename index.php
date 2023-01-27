@@ -1,4 +1,8 @@
 <?php
+interface Pet
+{
+    public function isPet();
+}
 abstract class Cats
 {
     public $name;
@@ -16,7 +20,7 @@ abstract class Cats
     abstract protected function animalRoar();
     abstract protected function interactionWithPerson();
 }
-class Cat extends Cats
+class Cat extends Cats implements Pet
 {
     function __construct($name, $skinType, $prey, $weight) {
         parent::__construct($name, $skinType, $prey, $weight);
@@ -28,6 +32,9 @@ class Cat extends Cats
     public function interactionWithPerson()
     {
         return "підлабузник під рукою";
+    }
+    public function isPet(){
+        return true;
     }
 }
 class Lynx extends Cats
